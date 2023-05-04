@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:smart_water_tank/views/signup.dart';
+import 'package:smart_water_tank/views/waterpump_main.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -12,6 +14,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF002863),
       resizeToAvoidBottomInset: false,
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         const Padding(
@@ -79,14 +82,26 @@ class _LoginState extends State<Login> {
                           shape: MaterialStatePropertyAll(
                               RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30.0)))),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const MainScreen(),
+                            ));
+                      },
                       child: const Text("Login")),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignUp(),
+                          ));
+                    },
                     child: const Text(
                       "Register Here",
                       style: TextStyle(

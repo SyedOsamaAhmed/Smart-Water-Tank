@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_water_tank/views/login.dart';
+import 'package:smart_water_tank/views/waterpump_main.dart';
 import 'package:smart_water_tank/views/signup.dart';
 
 void main() {
@@ -13,12 +14,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xFF002863),
-        primarySwatch: Colors.blue,
-      ),
-      home: const Login(),
+          primaryColor: const Color(0xFF002863),
+          appBarTheme: const AppBarTheme(
+            color: Color(0xFF002863),
+          )),
+      home: const SignUp(),
     );
   }
 }
