@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smart_water_tank/views/login.dart';
-import 'package:smart_water_tank/views/waterpump_main.dart';
+
 import 'package:smart_water_tank/views/signup.dart';
 
 void main() {

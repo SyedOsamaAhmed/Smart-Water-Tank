@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:smart_water_tank/views/widget/bottom_navigation.dart';
 import 'package:smart_water_tank/views/widget/waterlevel_scale.dart';
 
 class MainScreen extends StatefulWidget {
@@ -10,10 +11,11 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  bool activeStatusTank = true, activeStatusUnits = true;
+  bool activeStatusTank = true, activeStatusUnits = true, pumpStatus = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const BottomNavigation(),
       appBar: AppBar(
         title: const Text("Majid Maqbool"),
         actions: [
@@ -35,11 +37,9 @@ class _MainScreenState extends State<MainScreen> {
           )
         ],
       ),
-      body: Container(
+      body: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        decoration:
-            BoxDecoration(border: Border.all(width: 2.0, color: Colors.black)),
         child: Column(
           children: [
             Padding(
@@ -118,7 +118,30 @@ class _MainScreenState extends State<MainScreen> {
                   child: Scale(),
                 )
               ],
-            )
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            const Text("Pump Status"),
+            FlutterSwitch(
+              width: 110.0,
+              height: 40.0,
+              valueFontSize: 15.0,
+              toggleSize: 32.0,
+              value: pumpStatus,
+              borderRadius: 30.0,
+              padding: 6.0,
+              showOnOff: true,
+              activeText: "ON",
+              inactiveText: "OFF",
+              activeColor: const Color(0xFF98EDD0),
+              inactiveColor: const Color(0xFF98EDD0),
+              onToggle: (val) {
+                setState(() {
+                  pumpStatus = val;
+                });
+              },
+            ),
           ],
         ),
       ),

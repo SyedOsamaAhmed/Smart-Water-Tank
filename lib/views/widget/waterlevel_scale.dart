@@ -22,11 +22,11 @@ class Scale extends StatelessWidget {
               width: 20,
               height: 1,
               child: Container(
-                decoration: BoxDecoration(color: Colors.black),
+                decoration: const BoxDecoration(color: Colors.black),
               ),
             ),
-            Text("4"),
-            SizedBox(width: 10),
+            const Text("4"),
+            const SizedBox(width: 10),
             Text(
               "Full",
               style: TextStyle(fontSize: 10),
@@ -42,12 +42,12 @@ class Scale extends StatelessWidget {
               width: 20,
               height: 1,
               child: Container(
-                decoration: BoxDecoration(color: Colors.black),
+                decoration: const BoxDecoration(color: Colors.black),
               ),
             ),
-            Text("3.5"),
-            SizedBox(width: 10),
-            Text(
+            const Text("3.5"),
+            const SizedBox(width: 10),
+            const Text(
               "Max level",
               style: TextStyle(fontSize: 10),
             )
