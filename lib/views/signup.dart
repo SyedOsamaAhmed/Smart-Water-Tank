@@ -112,26 +112,23 @@ class _SignUpState extends State<SignUp> {
           const SizedBox(
             height: 30,
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.85,
-              height: MediaQuery.of(context).size.height * 0.08,
-              child: ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color(0xFFA7CAFF)),
-                      shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0)))),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Login(),
-                        ));
-                  },
-                  child: const Text("Next")),
-            ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.40,
+            height: MediaQuery.of(context).size.height * 0.08,
+            child: ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        const Color(0xFFA7CAFF)),
+                    shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0)))),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Login(),
+                      ));
+                },
+                child: const Text("Next")),
           )
         ]),
       ),

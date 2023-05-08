@@ -68,49 +68,45 @@ class _LoginState extends State<Login> {
         ),
         Container(
           alignment: Alignment.center,
-          child: Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: Column(
-              children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.85,
-                  height: MediaQuery.of(context).size.height * 0.08,
-                  child: ElevatedButton(
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              const Color(0xFFA7CAFF)),
-                          shape: MaterialStatePropertyAll(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30.0)))),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const MainScreen(),
-                            ));
-                      },
-                      child: const Text("Login")),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                TextButton(
+          child: Column(
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.35,
+                height: MediaQuery.of(context).size.height * 0.08,
+                child: ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            const Color(0xFFA7CAFF)),
+                        shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0)))),
                     onPressed: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const SignUp(),
+                            builder: (context) => const MainScreen(),
                           ));
                     },
-                    child: const Text(
-                      "Register Here",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700),
-                    ))
-              ],
-            ),
+                    child: const Text("Login")),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SignUp(),
+                        ));
+                  },
+                  child: const Text(
+                    "Register Here",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700),
+                  ))
+            ],
           ),
         )
       ]),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_water_tank/views/settings.dart';
 
 import 'package:smart_water_tank/views/signup.dart';
 
@@ -13,12 +14,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
           primaryColor: const Color(0xFF002863),
           appBarTheme: const AppBarTheme(
             color: Color(0xFF002863),
           )),
-      home: const SignUp(),
+      home: const WaterLevel(),
     );
   }
 }
