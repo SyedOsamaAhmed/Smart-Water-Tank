@@ -60,26 +60,26 @@ class _MainScreenState extends State<MainScreen> {
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.only(top: 25.0),
+                padding: const EdgeInsets.only(top: 25.0, left: 25.0),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Expanded(
                       child: FlutterSwitch(
-                        width: 320.0,
+                        width: 200.0,
                         height: 40.0,
-                        valueFontSize: 16.0,
-                        toggleSize: 24.0,
+                        valueFontSize: 15.0,
+                        padding: 1.2,
+                        toggleSize: 22.0,
                         value: activeStatusTank,
                         borderRadius: 30.0,
-                        padding: 1.2,
                         showOnOff: true,
                         activeText: "Overhead tank",
                         activeTextFontWeight: FontWeight.w500,
                         inactiveTextFontWeight: FontWeight.w500,
                         inactiveText: "Underground tank",
-                        activeColor: const Color(0xFF002863),
-                        inactiveColor: const Color(0xFF002863),
+                        activeColor: const Color(0xFF98EDD0),
+                        inactiveColor: const Color(0xFF98EDD0),
                         activeTextColor: Colors.white,
                         onToggle: (val) {
                           setState(() {
@@ -90,7 +90,7 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                     Expanded(
                       child: FlutterSwitch(
-                        width: 130.0,
+                        width: 70.0,
                         height: 40.0,
                         valueFontSize: 15.0,
                         toggleSize: 30.0,
@@ -100,16 +100,12 @@ class _MainScreenState extends State<MainScreen> {
                         showOnOff: true,
                         activeText: "Ft",
                         inactiveText: "Meters",
-                        activeColor: const Color(0xFF002863),
+                        activeColor: const Color(0xFF98EDD0),
                         activeTextFontWeight: FontWeight.w500,
-                        inactiveColor: const Color(0xFF002863),
+                        inactiveColor: const Color(0xFF98EDD0),
                         inactiveTextFontWeight: FontWeight.w500,
                         activeTextColor: Colors.white,
-                        onToggle: (val) {
-                          setState(() {
-                            activeStatusUnits = val;
-                          });
-                        },
+                        onToggle: (val) {},
                       ),
                     ),
                   ],
@@ -121,7 +117,7 @@ class _MainScreenState extends State<MainScreen> {
               children: [
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 15.0, top: 8.0),
+                    padding: const EdgeInsets.only(left: 30.0, top: 8.0),
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.40,
                       height: MediaQuery.of(context).size.height * 0.35,
@@ -139,7 +135,7 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                   ),
                 ),
-                const Expanded(
+                Expanded(
                   child: Padding(
                     padding: EdgeInsets.only(left: 8.0, top: 8.0),
                     child: Scale(),

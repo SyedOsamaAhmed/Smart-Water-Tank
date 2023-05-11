@@ -44,11 +44,6 @@ class _WaterLevelState extends State<WaterLevel> {
   }
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: const BottomNavigation(),
@@ -170,8 +165,7 @@ class _WaterLevelState extends State<WaterLevel> {
                                 )),
                             Positioned(
                                 top: positionCritical.dy + 35,
-                                width:
-                                    MediaQuery.of(context).size.width * 0.40,
+                                width: MediaQuery.of(context).size.width * 0.40,
                                 height:
                                     MediaQuery.of(context).size.height * 0.10,
                                 child: const Text(
@@ -198,8 +192,7 @@ class _WaterLevelState extends State<WaterLevel> {
                                       fontWeight: FontWeight.w400),
                                 )),
                             Positioned(
-                                width:
-                                    MediaQuery.of(context).size.width * 0.40,
+                                width: MediaQuery.of(context).size.width * 0.40,
                                 bottom: positionNonCritical.dy - 55,
                                 height:
                                     MediaQuery.of(context).size.height * 0.10,
@@ -213,8 +206,7 @@ class _WaterLevelState extends State<WaterLevel> {
                                 )),
                             Positioned(
                                 bottom: 18.0,
-                                width:
-                                    MediaQuery.of(context).size.width * 0.40,
+                                width: MediaQuery.of(context).size.width * 0.40,
                                 height:
                                     MediaQuery.of(context).size.height * 0.10,
                                 child: const Text(
