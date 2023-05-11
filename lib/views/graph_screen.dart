@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_water_tank/views/settings.dart';
 import 'package:smart_water_tank/views/waterpump_main.dart';
 import 'package:smart_water_tank/views/widget/bottom_navigation.dart';
 import 'package:smart_water_tank/views/widget/graph.dart';
@@ -34,7 +35,13 @@ class _WaterGraphState extends State<WaterGraph> {
             children: [
               IconButton(
                 icon: const Icon(Icons.settings),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const WaterLevel(),
+                      ));
+                },
               ),
               IconButton(
                 icon: const Icon(Icons.refresh),
