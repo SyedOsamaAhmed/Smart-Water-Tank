@@ -55,71 +55,76 @@ class _MainScreenState extends State<MainScreen> {
       body: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 25.0, left: 25.0),
+        child: IntrinsicWidth(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                      maxHeight: MediaQuery.of(context).size.height * 0.09),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 23.0, left: 24.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Expanded(
+                          child: FlutterSwitch(
+                            width: MediaQuery.of(context).size.width * 0.50,
+                            height: MediaQuery.of(context).size.width * 0.12,
+                            valueFontSize: 15.0,
+                            padding: 1.2,
+                            toggleSize: 24.0,
+                            value: activeStatusTank,
+                            borderRadius: 30.0,
+                            showOnOff: true,
+                            activeText: "Overhead tank",
+                            activeTextFontWeight: FontWeight.w500,
+                            inactiveTextFontWeight: FontWeight.w500,
+                            inactiveText: "Underground tank",
+                            activeColor: const Color(0xFF98EDD0),
+                            inactiveColor: const Color(0xFF98EDD0),
+                            activeTextColor: Colors.black,
+                            inactiveTextColor: Colors.black,
+                            onToggle: (val) {
+                              setState(() {
+                                activeStatusTank = val;
+                              });
+                            },
+                          ),
+                        ),
+                        Expanded(
+                          child: FlutterSwitch(
+                            width: MediaQuery.of(context).size.width * 0.28,
+                            height: MediaQuery.of(context).size.width * 0.12,
+                            valueFontSize: 15.0,
+                            toggleSize: 24.0,
+                            value: activeStatusUnits,
+                            borderRadius: 30.0,
+                            padding: 6.0,
+                            showOnOff: true,
+                            activeText: "Ft",
+                            inactiveText: "Meters",
+                            activeColor: const Color(0xFF98EDD0),
+                            activeTextFontWeight: FontWeight.w500,
+                            inactiveColor: const Color(0xFF98EDD0),
+                            inactiveTextFontWeight: FontWeight.w500,
+                            activeTextColor: Colors.black,
+                            onToggle: (val) {},
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 29.0, bottom: 0.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(
-                      child: FlutterSwitch(
-                        width: 200.0,
-                        height: 40.0,
-                        valueFontSize: 15.0,
-                        padding: 1.2,
-                        toggleSize: 22.0,
-                        value: activeStatusTank,
-                        borderRadius: 30.0,
-                        showOnOff: true,
-                        activeText: "Overhead tank",
-                        activeTextFontWeight: FontWeight.w500,
-                        inactiveTextFontWeight: FontWeight.w500,
-                        inactiveText: "Underground tank",
-                        activeColor: const Color(0xFF98EDD0),
-                        inactiveColor: const Color(0xFF98EDD0),
-                        activeTextColor: Colors.white,
-                        onToggle: (val) {
-                          setState(() {
-                            activeStatusTank = val;
-                          });
-                        },
-                      ),
-                    ),
-                    Expanded(
-                      child: FlutterSwitch(
-                        width: 70.0,
-                        height: 40.0,
-                        valueFontSize: 15.0,
-                        toggleSize: 30.0,
-                        value: activeStatusUnits,
-                        borderRadius: 30.0,
-                        padding: 6.0,
-                        showOnOff: true,
-                        activeText: "Ft",
-                        inactiveText: "Meters",
-                        activeColor: const Color(0xFF98EDD0),
-                        activeTextFontWeight: FontWeight.w500,
-                        inactiveColor: const Color(0xFF98EDD0),
-                        inactiveTextFontWeight: FontWeight.w500,
-                        activeTextColor: Colors.white,
-                        onToggle: (val) {},
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 30.0, top: 8.0),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width * 0.40,
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.44,
                       height: MediaQuery.of(context).size.height * 0.35,
                       decoration: BoxDecoration(
                           shape: BoxShape.rectangle,
@@ -133,30 +138,36 @@ class _MainScreenState extends State<MainScreen> {
                         ),
                       ),
                     ),
-                  ),
+                    const Expanded(
+                      child: Padding(
+                        padding:
+                            EdgeInsets.only(bottom: 0.0, left: 9.0, right: 9.0),
+                        child: Scale(),
+                      ),
+                    )
+                  ],
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 8.0, top: 8.0),
-                    child: Scale(),
-                  ),
-                )
-              ],
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.05,
-            ),
-            Padding(
-              padding:
-                  const EdgeInsets.only(left: 50.0, right: 50.0, bottom: 6.0),
-              child: Container(
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                    top: 5.0, left: 44.0, right: 44.0, bottom: 12.0),
+                child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 0.16,
-                  decoration: const BoxDecoration(color: Color(0XFF93F3D2)),
-                  child: Column(
+                  decoration: const BoxDecoration(
+                      color: Color(0XFF93F3D2),
+                      borderRadius: BorderRadius.all(Radius.circular(3.0)),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Color(0XFF5E5E5E),
+                            offset: Offset(1.0, 1.0),
+                            spreadRadius: 1.0,
+                            blurRadius: 2.0)
+                      ]),
+                  child: const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text(
+                      Text(
                         "Pump Status",
                         style: TextStyle(
                             color: Colors.black,
@@ -165,12 +176,12 @@ class _MainScreenState extends State<MainScreen> {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: const [
+                        children: [
                           Image(image: AssetImage('images/water_pump.png')),
                           Text(
                             "ON",
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Color(0XFF5E5E5E),
                               fontWeight: FontWeight.w700,
                               fontSize: 26,
                             ),
@@ -178,9 +189,11 @@ class _MainScreenState extends State<MainScreen> {
                         ],
                       )
                     ],
-                  )),
-            ),
-          ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

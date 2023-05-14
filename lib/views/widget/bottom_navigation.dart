@@ -10,85 +10,87 @@ class BottomNavigation extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.18,
       decoration: const BoxDecoration(color: Color(0xFF4D86DC)),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Column(
-            children: const [
-              Center(
-                child: Text.rich(
-                  TextSpan(
-                      text: "45",
+      child: IntrinsicHeight(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            const Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Text.rich(
+                    TextSpan(
+                        text: "45",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 42,
+                        ),
+                        children: [
+                          TextSpan(
+                              text: "%",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 28,
+                              ))
+                        ]),
+                  ),
+                ),
+                Expanded(
+                  child: Text("Water Level in %",
                       style: TextStyle(
                         color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 42,
-                      ),
-                      children: [
-                        TextSpan(
-                            text: "%",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w300,
-                              fontSize: 16,
-                            ))
-                      ]),
+                        fontWeight: FontWeight.w300,
+                        fontSize: 14,
+                      )),
                 ),
-              ),
-              Expanded(
-                child: Text("Water Level in %",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w300,
-                      fontSize: 16,
-                    )),
-              ),
-            ],
-          ),
-          const VerticalDivider(
-            width: 1.0,
-            color: Colors.black,
-            indent: 13.0,
-            endIndent: 13.0,
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Center(
-                child: Text.rich(
-                  TextSpan(
-                      text: "2.5",
+              ],
+            ),
+            const VerticalDivider(
+              width: 1.0,
+              color: Colors.black,
+              indent: 0.0,
+              endIndent: 0.0,
+            ),
+            const Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Text.rich(
+                    TextSpan(
+                        text: "2.5",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 42,
+                        ),
+                        children: [
+                          TextSpan(
+                              text: "ft",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 28,
+                              ))
+                        ]),
+                  ),
+                ),
+                Expanded(
+                  child: Text("Water Level in ft",
                       style: TextStyle(
                         color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 42,
-                      ),
-                      children: [
-                        TextSpan(
-                            text: "ft",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w300,
-                              fontSize: 16,
-                            ))
-                      ]),
-                ),
-              ),
-              Expanded(
-                child: Text("Water Level in ft",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w300,
-                      fontSize: 16,
-                    )),
-              )
-            ],
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.05,
-          )
-        ],
+                        fontWeight: FontWeight.w300,
+                        fontSize: 14,
+                      )),
+                )
+              ],
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.05,
+            )
+          ],
+        ),
       ),
     );
   }

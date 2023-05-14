@@ -23,8 +23,8 @@ class _LoginState extends State<Login> {
         ),
         Container(
             alignment: Alignment.center,
-            child: Column(
-              children: const [
+            child: const Column(
+              children: [
                 SizedBox(
                   width: 280.0,
                   child: TextField(
