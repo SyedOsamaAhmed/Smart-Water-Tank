@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_water_tank/views/settings.dart';
 import 'package:smart_water_tank/views/waterpump_main.dart';
-import 'package:smart_water_tank/views/widget/bottom_navigation.dart';
+import 'package:smart_water_tank/views/bottom_navigation.dart';
 import 'package:smart_water_tank/views/widget/graph.dart';
 
 class WaterGraph extends StatefulWidget {
@@ -34,12 +34,12 @@ class _WaterGraphState extends State<WaterGraph> {
           Row(
             children: [
               IconButton(
-                icon: const Icon(Icons.settings),
+                icon: const Icon(Icons.arrow_back),
                 onPressed: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const WaterLevel(),
+                        builder: (context) => const MainScreen(),
                       ));
                 },
               ),
@@ -71,6 +71,7 @@ class _WaterGraphState extends State<WaterGraph> {
                       color: Colors.white,
                     ),
                     child: DropdownButton(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       isExpanded: true,
                       elevation: 16,
                       alignment: Alignment.center,
@@ -95,6 +96,7 @@ class _WaterGraphState extends State<WaterGraph> {
                       color: Colors.white,
                     ),
                     child: DropdownButton(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       isExpanded: true,
                       elevation: 16,
                       alignment: Alignment.center,

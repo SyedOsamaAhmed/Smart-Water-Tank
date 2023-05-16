@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:smart_water_tank/views/graph_screen.dart';
 import 'package:smart_water_tank/views/settings.dart';
-import 'package:smart_water_tank/views/widget/bottom_navigation.dart';
+import 'package:smart_water_tank/views/bottom_navigation.dart';
+import 'package:smart_water_tank/views/widget/pump.dart';
+import 'package:smart_water_tank/views/widget/water.dart';
 import 'package:smart_water_tank/views/widget/waterlevel_scale.dart';
 
 class MainScreen extends StatefulWidget {
@@ -55,145 +57,90 @@ class _MainScreenState extends State<MainScreen> {
       body: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        child: IntrinsicWidth(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(
-                      maxHeight: MediaQuery.of(context).size.height * 0.09),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 23.0, left: 24.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Expanded(
-                          child: FlutterSwitch(
-                            width: MediaQuery.of(context).size.width * 0.50,
-                            height: MediaQuery.of(context).size.width * 0.12,
-                            valueFontSize: 15.0,
-                            padding: 1.2,
-                            toggleSize: 24.0,
-                            value: activeStatusTank,
-                            borderRadius: 30.0,
-                            showOnOff: true,
-                            activeText: "Overhead tank",
-                            activeTextFontWeight: FontWeight.w500,
-                            inactiveTextFontWeight: FontWeight.w500,
-                            inactiveText: "Underground tank",
-                            activeColor: const Color(0xFF98EDD0),
-                            inactiveColor: const Color(0xFF98EDD0),
-                            activeTextColor: Colors.black,
-                            inactiveTextColor: Colors.black,
-                            onToggle: (val) {
-                              setState(() {
-                                activeStatusTank = val;
-                              });
-                            },
-                          ),
-                        ),
-                        Expanded(
-                          child: FlutterSwitch(
-                            width: MediaQuery.of(context).size.width * 0.28,
-                            height: MediaQuery.of(context).size.width * 0.12,
-                            valueFontSize: 15.0,
-                            toggleSize: 24.0,
-                            value: activeStatusUnits,
-                            borderRadius: 30.0,
-                            padding: 6.0,
-                            showOnOff: true,
-                            activeText: "Ft",
-                            inactiveText: "Meters",
-                            activeColor: const Color(0xFF98EDD0),
-                            activeTextFontWeight: FontWeight.w500,
-                            inactiveColor: const Color(0xFF98EDD0),
-                            inactiveTextFontWeight: FontWeight.w500,
-                            activeTextColor: Colors.black,
-                            onToggle: (val) {},
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 29.0, bottom: 0.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.44,
-                      height: MediaQuery.of(context).size.height * 0.35,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          border: Border.all(width: 4.0, color: Colors.black)),
-                      child: Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Container(
-                          color: Colors.blue,
-                          width: MediaQuery.of(context).size.width * 0.55,
-                          height: MediaQuery.of(context).size.height * 0.18,
-                        ),
-                      ),
-                    ),
-                    const Expanded(
-                      child: Padding(
-                        padding:
-                            EdgeInsets.only(bottom: 0.0, left: 9.0, right: 9.0),
-                        child: Scale(),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 5.0, left: 44.0, right: 44.0, bottom: 12.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 0.16,
-                  decoration: const BoxDecoration(
-                      color: Color(0XFF93F3D2),
-                      borderRadius: BorderRadius.all(Radius.circular(3.0)),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color(0XFF5E5E5E),
-                            offset: Offset(1.0, 1.0),
-                            spreadRadius: 1.0,
-                            blurRadius: 2.0)
-                      ]),
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                    maxHeight: MediaQuery.of(context).size.height * 0.09),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 23.0, left: 24.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Text(
-                        "Pump Status",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w700),
+                      Expanded(
+                        child: FlutterSwitch(
+                          width: MediaQuery.of(context).size.width * 0.50,
+                          height: MediaQuery.of(context).size.width * 0.10,
+                          valueFontSize: 15.0,
+                          padding: 1.2,
+                          toggleSize: 24.0,
+                          value: activeStatusTank,
+                          borderRadius: 30.0,
+                          showOnOff: true,
+                          activeText: "Overhead tank",
+                          activeTextFontWeight: FontWeight.w500,
+                          inactiveTextFontWeight: FontWeight.w500,
+                          inactiveText: "Underground tank",
+                          activeColor: const Color(0xFF98EDD0),
+                          inactiveColor: const Color(0xFF98EDD0),
+                          activeTextColor: Colors.black,
+                          inactiveTextColor: Colors.black,
+                          onToggle: (val) {
+                            setState(() {
+                              activeStatusTank = val;
+                            });
+                          },
+                        ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Image(image: AssetImage('images/water_pump.png')),
-                          Text(
-                            "ON",
-                            style: TextStyle(
-                              color: Color(0XFF5E5E5E),
-                              fontWeight: FontWeight.w700,
-                              fontSize: 26,
-                            ),
-                          )
-                        ],
-                      )
+                      Expanded(
+                        child: FlutterSwitch(
+                          width: MediaQuery.of(context).size.width * 0.28,
+                          height: MediaQuery.of(context).size.width * 0.10,
+                          valueFontSize: 15.0,
+                          toggleSize: 24.0,
+                          value: activeStatusUnits,
+                          borderRadius: 30.0,
+                          padding: 6.0,
+                          showOnOff: true,
+                          activeText: "Ft",
+                          inactiveText: "Meters",
+                          activeColor: const Color(0xFF98EDD0),
+                          activeTextFontWeight: FontWeight.w500,
+                          inactiveColor: const Color(0xFF98EDD0),
+                          inactiveTextFontWeight: FontWeight.w500,
+                          activeTextColor: Colors.black,
+                          onToggle: (val) {},
+                        ),
+                      ),
                     ],
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 29.0, bottom: 0.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Water(),
+                  Expanded(
+                    child: Padding(
+                      padding:
+                          EdgeInsets.only(bottom: 0.0, left: 9.0, right: 9.0),
+                      child: Scale(),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(
+                  top: 8.0, left: 44.0, right: 44.0, bottom: 12.0),
+              child: Pump(),
+            ),
+          ],
         ),
       ),
     );

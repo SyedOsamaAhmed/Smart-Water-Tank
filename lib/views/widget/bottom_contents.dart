@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-class BottomNavigation extends StatelessWidget {
-  const BottomNavigation({super.key});
+class BottomContents extends StatelessWidget {
+  const BottomContents({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.18,
-      decoration: const BoxDecoration(color: Color(0xFF4D86DC)),
-      child: IntrinsicHeight(
+    return IntrinsicHeight(
+      child: Padding(
+        padding: const EdgeInsets.only(top: 12.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.05,
+            ),
             const Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -50,8 +50,8 @@ class BottomNavigation extends StatelessWidget {
             const VerticalDivider(
               width: 1.0,
               color: Colors.black,
-              indent: 0.0,
-              endIndent: 0.0,
+              indent: 5.0,
+              endIndent: 33.0,
             ),
             const Column(
               mainAxisAlignment: MainAxisAlignment.center,

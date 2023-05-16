@@ -21,8 +21,8 @@ class Graph extends StatelessWidget {
                 WaterData('Apr', 32),
                 WaterData('May', 40)
               ],
-              xValueMapper: (WaterData data, _) => data.waterLevel_percentage,
-              yValueMapper: (WaterData data, _) => data.waterlevel_ft,
+              xValueMapper: (WaterData data, _) => data.waterLevelPercent,
+              yValueMapper: (WaterData data, _) => data.waterlevelFt,
             ),
             LineSeries<WaterData, String>(
               // Bind data source
@@ -33,8 +33,8 @@ class Graph extends StatelessWidget {
                 WaterData('Apr', 32),
                 WaterData('May', 43)
               ],
-              xValueMapper: (WaterData data, _) => data.waterLevel_percentage,
-              yValueMapper: (WaterData data, _) => data.waterlevel_ft,
+              xValueMapper: (WaterData data, _) => data.waterLevelPercent,
+              yValueMapper: (WaterData data, _) => data.waterlevelFt,
             )
           ])
     ]);

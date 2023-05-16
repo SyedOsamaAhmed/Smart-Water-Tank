@@ -17,17 +17,14 @@ class _LoginState extends State<Login> {
       backgroundColor: const Color(0xFF002863),
       resizeToAvoidBottomInset: false,
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        const Padding(
-          padding: EdgeInsets.only(left: 40.0),
-          child: Image(image: AssetImage('images/smart_water_tank.png')),
-        ),
+        const Image(image: AssetImage('images/smart_water_tank.png')),
         Container(
             alignment: Alignment.center,
-            child: const Column(
+            child: Column(
               children: [
                 SizedBox(
-                  width: 280.0,
-                  child: TextField(
+                  width: MediaQuery.of(context).size.width * 0.70,
+                  child: const TextField(
                     decoration: InputDecoration(
                         prefixIcon: Align(
                             widthFactor: 1.0,
@@ -42,11 +39,11 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 SizedBox(
-                  height: 45.0,
+                  height: MediaQuery.of(context).size.height * 0.05,
                 ),
                 SizedBox(
-                  width: 280.0,
-                  child: TextField(
+                  width: MediaQuery.of(context).size.width * 0.70,
+                  child: const TextField(
                     obscureText: true,
                     decoration: InputDecoration(
                         prefixIcon: Align(
@@ -63,15 +60,15 @@ class _LoginState extends State<Login> {
                 ),
               ],
             )),
-        const SizedBox(
-          height: 45,
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.10,
         ),
         Container(
           alignment: Alignment.center,
           child: Column(
             children: [
               SizedBox(
-                width: MediaQuery.of(context).size.width * 0.35,
+                width: MediaQuery.of(context).size.width * 0.55,
                 height: MediaQuery.of(context).size.height * 0.08,
                 child: ElevatedButton(
                     style: ButtonStyle(
@@ -88,8 +85,8 @@ class _LoginState extends State<Login> {
                     },
                     child: const Text("Login")),
               ),
-              const SizedBox(
-                height: 30,
+              SizedBox(
+                height: MediaQuery.of(context).size.width * 0.03,
               ),
               TextButton(
                   onPressed: () {

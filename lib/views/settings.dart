@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:smart_water_tank/views/graph_screen.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart'
     show SfRangeSlider, SfRangeValues;
 import 'package:smart_water_tank/views/waterpump_main.dart';
-import 'package:smart_water_tank/views/widget/bottom_navigation.dart';
+import 'package:smart_water_tank/views/bottom_navigation.dart';
 
 class WaterLevel extends StatefulWidget {
   const WaterLevel({super.key});
@@ -37,11 +38,11 @@ class _WaterLevelState extends State<WaterLevel> {
   }
 
   @override
-  void didChangeDependencies() {
+  void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _getWidgetPosition();
     });
-    super.didChangeDependencies();
+    super.initState();
   }
 
   @override
@@ -64,9 +65,12 @@ class _WaterLevelState extends State<WaterLevel> {
           Row(
             children: [
               IconButton(
-                icon: const Icon(Icons.settings),
-                onPressed: () {},
-              ),
+                  icon: const Icon(Icons.arrow_back),
+                  onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const WaterGraph(),
+                      ))),
               IconButton(
                 icon: const Icon(Icons.refresh),
                 onPressed: () {},
@@ -79,19 +83,23 @@ class _WaterLevelState extends State<WaterLevel> {
           )
         ],
       ),
-      body: SizedBox(
+      body: Container(
+        alignment: Alignment.center,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 9.0),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 0.0, vertical: 15.0),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Expanded(
                     child: FlutterSwitch(
-                      width: MediaQuery.of(context).size.width * 0.50,
-                      height: MediaQuery.of(context).size.width * 0.12,
+                      width: MediaQuery.of(context).size.width * 0.48,
+                      height: MediaQuery.of(context).size.width * 0.10,
                       valueFontSize: 15.0,
                       padding: 1.2,
                       toggleSize: 22.0,
@@ -116,7 +124,7 @@ class _WaterLevelState extends State<WaterLevel> {
                   Expanded(
                     child: FlutterSwitch(
                       width: MediaQuery.of(context).size.width * 0.28,
-                      height: MediaQuery.of(context).size.width * 0.12,
+                      height: MediaQuery.of(context).size.width * 0.10,
                       valueFontSize: 15.0,
                       toggleSize: 30.0,
                       value: activeStatusUnits,
@@ -137,132 +145,122 @@ class _WaterLevelState extends State<WaterLevel> {
               ),
             ),
             Expanded(
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.65,
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: ConstrainedBox(
-                        constraints: BoxConstraints(
-                            maxWidth: MediaQuery.of(context).size.width / 2,
-                            maxHeight:
-                                MediaQuery.of(context).size.height * 0.65),
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Positioned(
-                              top: positionMain.dy - 120,
-                              child: const Text(
-                                "Full",
-                                style: TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.w400),
-                              ),
-                            ),
-                            Positioned(
-                              top: positionMain.dy - 35,
-                              child: const Text(
-                                "Max Level Non-Peak Hours",
-                                style: TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.w400),
-                              ),
-                            ),
-                            Positioned(
-                              top: positionMain.dy + 25,
-                              child: const Text(
-                                "Max Level Peak Hours",
-                                style: TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.w400),
-                              ),
-                            ),
-                            Positioned(
-                              top: positionMain.dy + 110,
-                              child: const Text(
-                                "Critical Level Non-Peak Hours",
-                                style: TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.w400),
-                              ),
-                            ),
-                            Positioned(
-                              top: positionMain.dy + 140,
-                              child: const Text(
-                                "Critical Level Peak Hours",
-                                style: TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.w400),
-                              ),
-                            ),
-                            Positioned(
-                              top: positionMain.dy + 170,
-                              child: const Text(
-                                "Empty",
-                                style: TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.w400),
-                              ),
-                            ),
-                          ],
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width / 2,
+                        maxHeight: MediaQuery.of(context).size.height * 0.65),
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Positioned(
+                          top: positionMain.dy - 120,
+                          child: const Text(
+                            "Full",
+                            style: TextStyle(
+                                fontSize: 11, fontWeight: FontWeight.w400),
+                          ),
                         ),
-                      ),
+                        Positioned(
+                          top: positionMain.dy - 35,
+                          child: const Text(
+                            "Max Level Non-Peak Hours",
+                            style: TextStyle(
+                                fontSize: 12, fontWeight: FontWeight.w400),
+                          ),
+                        ),
+                        Positioned(
+                          top: positionMain.dy + 35,
+                          child: const Text(
+                            "Max Level Peak Hours",
+                            style: TextStyle(
+                                fontSize: 11, fontWeight: FontWeight.w400),
+                          ),
+                        ),
+                        Positioned(
+                          top: positionMain.dy + 110,
+                          child: const Text(
+                            "Critical Level Non-Peak Hours",
+                            style: TextStyle(
+                                fontSize: 11, fontWeight: FontWeight.w400),
+                          ),
+                        ),
+                        Positioned(
+                          top: positionMain.dy + 140,
+                          child: const Text(
+                            "Critical Level Peak Hours",
+                            style: TextStyle(
+                                fontSize: 11, fontWeight: FontWeight.w400),
+                          ),
+                        ),
+                        Positioned(
+                          top: positionMain.dy + 190,
+                          child: const Text(
+                            "Empty",
+                            style: TextStyle(
+                                fontSize: 11, fontWeight: FontWeight.w400),
+                          ),
+                        ),
+                      ],
                     ),
-                    Expanded(
-                      child: ConstrainedBox(
-                        constraints: BoxConstraints(
-                            maxWidth: MediaQuery.of(context).size.width / 2,
-                            maxHeight:
-                                MediaQuery.of(context).size.height * 0.65),
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Positioned(
-                              key: _keyMainLvl,
-                              left: positionMain.dx - 70,
-                              height: MediaQuery.of(context).size.height * 0.55,
-                              child: SfRangeSliderTheme(
-                                data: SfRangeSliderThemeData(
-                                    thumbRadius: 0.0, trackCornerRadius: 0.0),
-                                child: SfRangeSlider.vertical(
-                                  values: SfRangeValues(0.0, 0.0),
-                                  onChanged: (value) {},
-                                  showLabels: true,
-                                  activeColor: Color(0xFF013481),
-                                  inactiveColor: Color(0xFFA9CBFF),
-                                  max: 4.0,
-                                  min: 0.0,
-                                ),
-                              ),
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 2,
+                    height: MediaQuery.of(context).size.height * 0.65,
+                    child: Stack(
+                      alignment: Alignment.topLeft,
+                      children: [
+                        Positioned(
+                          key: _keyMainLvl,
+                          height: MediaQuery.of(context).size.height * 0.58,
+                          left: positionCritical.dx - positionNonCritical.dx,
+                          child: SfRangeSliderTheme(
+                            data: SfRangeSliderThemeData(
+                                thumbRadius: 0.0, trackCornerRadius: 0.0),
+                            child: SfRangeSlider.vertical(
+                              values: const SfRangeValues(0.0, 0.0),
+                              onChanged: (value) {},
+                              showLabels: true,
+                              activeColor: const Color(0xFF013481),
+                              inactiveColor: const Color(0xFFA9CBFF),
+                              max: 4.0,
+                              min: 0.0,
                             ),
-                            Positioned(
-                              top: positionMain.dy - 50,
-                              key: _keyNonCriticalLvl,
-                              child: SfRangeSlider.vertical(
-                                values: SfRangeValues(1.0, 3.5),
-                                showLabels: true,
-                                activeColor: Color(0xFF013481),
-                                inactiveColor: Color(0xFFA9CBFF),
-                                onChanged: (value) {},
-                                max: 3.5,
-                                min: 1.0,
-                              ),
-                            ),
-                            Positioned(
-                              key: _keyCriticalLvl,
-                              bottom: positionNonCritical.dy - 40,
-                              height: MediaQuery.of(context).size.height * 0.25,
-                              child: SfRangeSlider.vertical(
-                                values: SfRangeValues(0.5, 3.0),
-                                activeColor: Color(0xFF013481),
-                                inactiveColor: Color(0xFFA9CBFF),
-                                showLabels: true,
-                                onChanged: (value) {},
-                                max: 3.0,
-                                min: 0.5,
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
-                      ),
-                    )
-                  ],
-                ),
+                        Positioned(
+                          top: positionMain.dy - 50,
+                          key: _keyNonCriticalLvl,
+                          child: SfRangeSlider.vertical(
+                            values: const SfRangeValues(1.0, 3.5),
+                            showLabels: true,
+                            activeColor: const Color(0xFF013481),
+                            inactiveColor: const Color(0xFFA9CBFF),
+                            onChanged: (value) {},
+                            max: 3.5,
+                            min: 1.0,
+                          ),
+                        ),
+                        Positioned(
+                          key: _keyCriticalLvl,
+                          bottom: positionNonCritical.dy - 40,
+                          height: MediaQuery.of(context).size.height * 0.25,
+                          child: SfRangeSlider.vertical(
+                            values: const SfRangeValues(0.5, 3.0),
+                            activeColor: const Color(0xFF013481),
+                            inactiveColor: const Color(0xFFA9CBFF),
+                            showLabels: true,
+                            onChanged: (value) {},
+                            max: 3.0,
+                            min: 0.5,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
               ),
             ),
           ],
