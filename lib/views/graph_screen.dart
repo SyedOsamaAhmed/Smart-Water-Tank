@@ -115,7 +115,7 @@ class _WaterGraphState extends State<WaterGraph> {
                     )
                   ],
                 ),
-                const Graph_(),
+                const Graph(),
               ],
             ),
           )),
