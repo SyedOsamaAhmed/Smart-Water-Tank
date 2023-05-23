@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           appBarTheme: const AppBarTheme(
             color: Color(0xFF002863),
           )),
-      home: const SignUp(),
+      home: const MainScreen(),
     );
   }
 }

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:smart_water_tank/views/settings.dart';
+
 import 'package:smart_water_tank/views/waterpump_main.dart';
 import 'package:smart_water_tank/views/bottom_navigation.dart';
-import 'package:smart_water_tank/views/widget/graph.dart';
+
+import 'package:smart_water_tank/views/widget/test.dart';
 
 class WaterGraph extends StatefulWidget {
   const WaterGraph({super.key});
@@ -58,63 +59,65 @@ class _WaterGraphState extends State<WaterGraph> {
       body: SizedBox(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Container(
-                    alignment: Alignment.center,
-                    width: MediaQuery.of(context).size.width * 0.30,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                    ),
-                    child: DropdownButton(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      isExpanded: true,
-                      elevation: 16,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 38.0),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
                       alignment: Alignment.center,
-                      value: timeline.first,
-                      items: timeline
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                      onChanged: (value) {},
+                      width: MediaQuery.of(context).size.width * 0.30,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                      ),
+                      child: DropdownButton(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        isExpanded: true,
+                        elevation: 16,
+                        alignment: Alignment.center,
+                        value: timeline.first,
+                        items: timeline
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                        onChanged: (value) {},
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: MediaQuery.of(context).size.width * 0.30,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
+                    const SizedBox(
+                      width: 20,
                     ),
-                    child: DropdownButton(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      isExpanded: true,
-                      elevation: 16,
+                    Container(
                       alignment: Alignment.center,
-                      value: level.first,
-                      items: level
-                          .map<DropdownMenuItem<String>>((String waterlevel) {
-                        return DropdownMenuItem<String>(
-                          value: waterlevel,
-                          child: Text(waterlevel),
-                        );
-                      }).toList(),
-                      onChanged: (value) {},
-                    ),
-                  )
-                ],
-              ),
-              const Graph(),
-            ],
+                      width: MediaQuery.of(context).size.width * 0.30,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                      ),
+                      child: DropdownButton(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        isExpanded: true,
+                        elevation: 16,
+                        alignment: Alignment.center,
+                        value: level.first,
+                        items: level
+                            .map<DropdownMenuItem<String>>((String waterlevel) {
+                          return DropdownMenuItem<String>(
+                            value: waterlevel,
+                            child: Text(waterlevel),
+                          );
+                        }).toList(),
+                        onChanged: (value) {},
+                      ),
+                    )
+                  ],
+                ),
+                const Graph_(),
+              ],
+            ),
           )),
     );
   }

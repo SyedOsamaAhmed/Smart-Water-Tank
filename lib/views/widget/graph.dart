@@ -10,6 +10,7 @@ class Graph extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: [
       SfCartesianChart(
+          backgroundColor: Colors.green,
           primaryXAxis: CategoryAxis(),
           series: <LineSeries<WaterData, String>>[
             LineSeries<WaterData, String>(
