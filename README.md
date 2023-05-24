@@ -1,20 +1,45 @@
-<<<<<<< HEAD
-# smart_water_tank
 
-A new Flutter project.
+# Smart Water Tank:
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Description: 
+This app is used to show levels of water tank and user can also see graphs of water levels at any time period. The purpose of this application is to get live data of water levels from the tank and when water levels are critical i.e near empty it will automatically turn the pump on and if water is above max levels i.e full it will turn off the pump. Also user can enter dimensions of water tank and the app will display same dimensioned water tank. Through live data tracking, the app has control over the water pump.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Front-end:
+* Flutter
+* dart
+* flutter syncfusion charts package
+* flutter switch package
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-=======
-# Smart-Water-Tank
->>>>>>> b632a56a1676a86f91e8e85caca1d8f8bad917cc
+
+## Backend:
+* Firebase realtime database.
+
+
+## Features:
+* user can authenticate himself using **firebase authentication**.
+* user can  enter tank dimensions.
+* user can see graphs of water tank  by months and years.
+* live data from firebase.
+
+
+### Note: This is the MVP.  It is currently under development features to be added.
+
+
+## Output:
+### SignUp:
+![Signup](https://github.com/SyedOsamaAhmed/Smart-Water-Tank/blob/main/assets/screen1.png?raw=true)
+
+### Login:
+![login](https://github.com/SyedOsamaAhmed/Smart-Water-Tank/blob/main/assets/screen2.png?raw=true)
+
+### Main Screen:
+![](https://github.com/SyedOsamaAhmed/Smart-Water-Tank/blob/main/assets/screen3.png?raw=true)
+
+### Setting Screen:
+![setting](https://github.com/SyedOsamaAhmed/Smart-Water-Tank/blob/main/assets/screen4.png?raw=true)
+
+### Graph Screen:
+![](https://github.com/SyedOsamaAhmed/Smart-Water-Tank/blob/main/assets/screen5.png?raw=true)
+
