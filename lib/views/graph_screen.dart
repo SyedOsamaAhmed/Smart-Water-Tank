@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:smart_water_tank/views/waterpump_main.dart';
 import 'package:smart_water_tank/views/bottom_navigation.dart';
 
-import 'package:smart_water_tank/views/widget/test.dart';
+import 'package:smart_water_tank/views/widget/water_graph.dart';
 
 class WaterGraph extends StatefulWidget {
   const WaterGraph({super.key});

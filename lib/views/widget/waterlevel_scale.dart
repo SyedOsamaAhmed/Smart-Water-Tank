@@ -7,7 +7,7 @@ class Scale extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConstrainedBox(
       constraints: BoxConstraints(
-          maxHeight: MediaQuery.of(context).size.height * 0.37,
+          maxHeight: MediaQuery.of(context).size.height * 0.38,
           maxWidth: MediaQuery.of(context).size.width),
       child: Row(mainAxisSize: MainAxisSize.max, children: [
         const Stack(alignment: Alignment.topLeft, children: [
@@ -21,7 +21,7 @@ class Scale extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: EdgeInsets.only(right: 18.0, top: 24),
+            padding: EdgeInsets.only(right: 18.0, top: 16),
             child: Row(
               children: [
                 SizedBox(width: 10),
@@ -33,7 +33,7 @@ class Scale extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(right: 18.0, top: 104),
+            padding: EdgeInsets.only(right: 18.0, top: 50),
             child: Row(
               children: [
                 SizedBox(width: 10),
@@ -45,7 +45,7 @@ class Scale extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(right: 18.0, top: 187),
+            padding: EdgeInsets.only(right: 18.0, top: 175),
             child: Row(
               children: [
                 SizedBox(width: 10),
@@ -57,7 +57,7 @@ class Scale extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(right: 18.0, top: 215),
+            padding: EdgeInsets.only(right: 18.0, top: 195),
             child: Row(
               children: [
                 SizedBox(width: 10),
@@ -73,8 +73,8 @@ class Scale extends StatelessWidget {
           color: Colors.black,
           width: 0.0,
           thickness: 1.0,
-          indent: 9.0,
-          endIndent: 8.0,
+          indent: 21.0,
+          endIndent: 21.0,
         ),
         Stack(alignment: Alignment.topLeft, children: [
           Row(
@@ -92,7 +92,7 @@ class Scale extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 18.0, top: 24),
+            padding: const EdgeInsets.only(right: 18.0, top: 18),
             child: Row(
               children: [
                 SizedBox(
@@ -107,7 +107,7 @@ class Scale extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 18.0, top: 104),
+            padding: const EdgeInsets.only(right: 18.0, top: 54),
             child: Row(
               children: [
                 SizedBox(
@@ -124,7 +124,7 @@ class Scale extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 18.0, top: 190),
+            padding: const EdgeInsets.only(right: 18.0, top: 180),
             child: Row(
               children: [
                 SizedBox(
@@ -139,7 +139,7 @@ class Scale extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 18.0, top: 222),
+            padding: const EdgeInsets.only(right: 18.0, top: 200),
             child: Row(
               children: [
                 SizedBox(

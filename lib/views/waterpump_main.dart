@@ -4,6 +4,7 @@ import 'package:smart_water_tank/views/graph_screen.dart';
 
 import 'package:smart_water_tank/views/settings.dart';
 import 'package:smart_water_tank/views/bottom_navigation.dart';
+import 'package:smart_water_tank/views/tank.dart';
 
 import 'package:smart_water_tank/views/widget/waterlevel_scale.dart';
 
@@ -120,26 +121,27 @@ class _MainScreenState extends State<MainScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 36.0, bottom: 0.0),
+              padding: EdgeInsets.only(left: 36.0, bottom: 0.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.40,
-                    height: MediaQuery.of(context).size.height * 0.35,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        border: Border.all(width: 4.0, color: Colors.black)),
-                    child: Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Container(
-                        color: Colors.blue,
-                        width: MediaQuery.of(context).size.width * 0.55,
-                        height: MediaQuery.of(context).size.height * 0.18,
-                      ),
-                    ),
-                  ),
-                  const Expanded(
+                  // Container(
+                  //   width: MediaQuery.of(context).size.width * 0.40,
+                  //   height: MediaQuery.of(context).size.height * 0.35,
+                  //   decoration: BoxDecoration(
+                  //       shape: BoxShape.rectangle,
+                  //       border: Border.all(width: 4.0, color: Colors.black)),
+                  //   child: Align(
+                  //     alignment: Alignment.bottomLeft,
+                  //     child: Container(
+                  //       color: Colors.blue,
+                  //       width: MediaQuery.of(context).size.width * 0.55,
+                  //       height: MediaQuery.of(context).size.height * 0.18,
+                  //     ),
+                  //   ),
+                  // ),
+                  WaterTank(),
+                  Expanded(
                     child: Scale(),
                   )
                 ],
