@@ -60,7 +60,7 @@ class _WaterGraphState extends State<WaterGraph> {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Padding(
-            padding: const EdgeInsets.only(top: 38.0),
+            padding: const EdgeInsets.only(top: 35.0),
             child: Column(
               children: [
                 Row(
@@ -88,8 +88,8 @@ class _WaterGraphState extends State<WaterGraph> {
                         onChanged: (value) {},
                       ),
                     ),
-                    const SizedBox(
-                      width: 20,
+                   SizedBox(
+                      width: MediaQuery.of(context).size.width*0.02,
                     ),
                     Container(
                       alignment: Alignment.center,
@@ -115,6 +115,9 @@ class _WaterGraphState extends State<WaterGraph> {
                     )
                   ],
                 ),
+                   SizedBox(
+                      height: MediaQuery.of(context).size.height*0.03,
+                    ),
                 const Graph(),
               ],
             ),

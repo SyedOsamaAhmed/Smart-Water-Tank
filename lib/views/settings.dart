@@ -16,8 +16,6 @@ class WaterLevel extends StatefulWidget {
 class _WaterLevelState extends State<WaterLevel> {
   bool activeStatusTank = true, activeStatusUnits = true, pumpStatus = true;
   Offset positionMain = const Offset(0.0, 0.0);
-  Offset positionCritical = const Offset(0.0, 0.0);
-  Offset positionNonCritical = const Offset(0.0, 0.0);
 
   @override
   Widget build(BuildContext context) {
@@ -76,9 +74,8 @@ class _WaterLevelState extends State<WaterLevel> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       FlutterSwitch(
-                        width: MediaQuery.of(context).size.width * 0.38,
-                        height: MediaQuery.of(context).size.width * 0.09,
-                        valueFontSize: 11.0,
+                        width: MediaQuery.of(context).size.width * 0.39,
+                        valueFontSize: 15.0,
                         padding: 1.2,
                         toggleSize: 22.0,
                         value: activeStatusTank,
@@ -100,8 +97,7 @@ class _WaterLevelState extends State<WaterLevel> {
                       ),
                       FlutterSwitch(
                         width: MediaQuery.of(context).size.width * 0.18,
-                        height: MediaQuery.of(context).size.width * 0.08,
-                        valueFontSize: 11.0,
+                        valueFontSize: 15.0,
                         toggleSize: 22.0,
                         value: activeStatusUnits,
                         borderRadius: 30.0,
@@ -148,7 +144,7 @@ class _WaterLevelState extends State<WaterLevel> {
                                   ),
                                 ),
                                 Positioned(
-                                  top: positionMain.dy + 100,
+                                  top: positionMain.dy + 110,
                                   child: const Text(
                                     "Max Level Non-Peak Hours",
                                     style: TextStyle(
@@ -157,7 +153,7 @@ class _WaterLevelState extends State<WaterLevel> {
                                   ),
                                 ),
                                 Positioned(
-                                  top: positionMain.dy + 155,
+                                  top: positionMain.dy + 168,
                                   child: const Text(
                                     "Max Level Peak Hours",
                                     style: TextStyle(
@@ -166,7 +162,7 @@ class _WaterLevelState extends State<WaterLevel> {
                                   ),
                                 ),
                                 Positioned(
-                                  bottom: positionMain.dy + 100,
+                                  bottom: positionMain.dy + 115,
                                   child: const Text(
                                     "Critical Level Non-Peak Hours",
                                     style: TextStyle(
@@ -175,7 +171,7 @@ class _WaterLevelState extends State<WaterLevel> {
                                   ),
                                 ),
                                 Positioned(
-                                  bottom: positionMain.dy + 60,
+                                  bottom: positionMain.dy + 70,
                                   child: const Text(
                                     "Critical Level Peak Hours",
                                     style: TextStyle(

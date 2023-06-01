@@ -10,7 +10,7 @@ class WaterTank extends StatelessWidget {
       size: Size(
         MediaQuery.of(context).size.width * 0.40,
         MediaQuery.of(context).size.height * 0.35,
-      ), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+      ),
       painter: Tank(),
     );
   }

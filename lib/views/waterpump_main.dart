@@ -72,9 +72,9 @@ class _MainScreenState extends State<MainScreen> {
                     children: [
                       Expanded(
                         child: FlutterSwitch(
-                          width: MediaQuery.of(context).size.width * 0.38,
-                          height: MediaQuery.of(context).size.width * 0.09,
-                          valueFontSize: 11.0,
+                          width: MediaQuery.of(context).size.width * 0.39,
+                          // height: MediaQuery.of(context).size.height * 0.09,
+                          valueFontSize: 15.0,
                           padding: 1.2,
                           toggleSize: 24.0,
                           value: activeStatusTank,
@@ -98,8 +98,8 @@ class _MainScreenState extends State<MainScreen> {
                       Expanded(
                         child: FlutterSwitch(
                           width: MediaQuery.of(context).size.width * 0.18,
-                          height: MediaQuery.of(context).size.width * 0.09,
-                          valueFontSize: 11.0,
+                          // height: MediaQuery.of(context).size.height * 0.09,
+                          valueFontSize: 15.0,
                           toggleSize: 24.0,
                           value: activeStatusUnits,
                           borderRadius: 30.0,
@@ -120,31 +120,20 @@ class _MainScreenState extends State<MainScreen> {
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(left: 36.0, bottom: 0.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // Container(
-                  //   width: MediaQuery.of(context).size.width * 0.40,
-                  //   height: MediaQuery.of(context).size.height * 0.35,
-                  //   decoration: BoxDecoration(
-                  //       shape: BoxShape.rectangle,
-                  //       border: Border.all(width: 4.0, color: Colors.black)),
-                  //   child: Align(
-                  //     alignment: Alignment.bottomLeft,
-                  //     child: Container(
-                  //       color: Colors.blue,
-                  //       width: MediaQuery.of(context).size.width * 0.55,
-                  //       height: MediaQuery.of(context).size.height * 0.18,
-                  //     ),
-                  //   ),
-                  // ),
-                  WaterTank(),
-                  Expanded(
-                    child: Scale(),
-                  )
-                ],
+            ConstrainedBox(
+              constraints: BoxConstraints(
+                  maxHeight: MediaQuery.of(context).size.height * 0.50),
+              child: const Padding(
+                padding: EdgeInsets.only(left: 36.0, bottom: 0.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(child: WaterTank()),
+                    Expanded(
+                      child: Scale(),
+                    )
+                  ],
+                ),
               ),
             ),
             Padding(
@@ -152,7 +141,7 @@ class _MainScreenState extends State<MainScreen> {
                   top: 10.0, left: 44.0, right: 44.0, bottom: 12.0),
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.70,
-                height: MediaQuery.of(context).size.height * 0.16,
+                height: MediaQuery.of(context).size.height * 0.14,
                 decoration: const BoxDecoration(
                     color: Color(0XFF93F3D2),
                     borderRadius: BorderRadius.all(Radius.circular(3.0)),
