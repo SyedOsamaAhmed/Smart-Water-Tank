@@ -5,18 +5,21 @@ class Scale extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Offset position = const Offset(0.0, 0.0);
     return ConstrainedBox(
-      constraints: BoxConstraints(
-        maxHeight: MediaQuery.of(context).size.height * 0.40,
-      ),
-      child: Row(mainAxisSize: MainAxisSize.max, children: [
-        Expanded(
-          child: SizedBox(
-            height: MediaQuery.of(context).size.height * 0.40,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 34.0),
-              child: Stack(children: [
-                Row(
+        constraints: BoxConstraints(
+          maxWidth: MediaQuery.of(context).size.width,
+          maxHeight: MediaQuery.of(context).size.height * 0.40,
+        ),
+        child: Row(mainAxisSize: MainAxisSize.max, children: [
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              maxWidth: MediaQuery.of(context).size.width * 0.20,
+            ),
+            child: Stack(children: [
+              Positioned(
+                top: position.dy + 28,
+                child: Row(
                   children: [
                     SizedBox(width: MediaQuery.of(context).size.width * 0.02),
                     const Text(
@@ -25,152 +28,177 @@ class Scale extends StatelessWidget {
                     )
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 34),
-                  child: Row(
-                    children: [
-                      SizedBox(width: MediaQuery.of(context).size.width * 0.02),
-                      const Text(
-                        "Max level",
-                        style: TextStyle(fontSize: 10),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 60),
-                  child: Row(
-                    children: [
-                      SizedBox(width: MediaQuery.of(context).size.width * 0.02),
-                      const Text(
-                        "Current level",
-                        style: TextStyle(fontSize: 10),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 220),
-                  child: Row(
-                    children: [
-                      SizedBox(width: MediaQuery.of(context).size.width * 0.02),
-                      const Text(
-                        "Critical level",
-                        style: TextStyle(fontSize: 10),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 240),
-                  child: Row(
-                    children: [
-                      SizedBox(width: MediaQuery.of(context).size.width * 0.02),
-                      const Text(
-                        "Empty",
-                        style: TextStyle(fontSize: 10),
-                      )
-                    ],
-                  ),
-                ),
-              ]),
-            ),
-          ),
-        ),
-        const Flexible(
-          child: VerticalDivider(
-            color: Colors.black,
-            width: 0.0,
-            thickness: 1.0,
-            indent: 38.0,
-            endIndent: 38.0,
-          ),
-        ),
-        SizedBox(
-          height: MediaQuery.of(context).size.height * 0.40,
-          child: Padding(
-            padding: const EdgeInsets.only(top: 30.0),
-            child: Stack(children: [
-              Row(
-                children: [
-                  SizedBox(
-                    width: 20,
-                    height: 1,
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                  const Text("4"),
-                ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 0.0, top: 35),
+              Positioned(
+                top: position.dy + 50,
                 child: Row(
                   children: [
-                    SizedBox(
-                      width: 20,
-                      height: 1,
-                      child: Container(
-                        decoration: const BoxDecoration(color: Colors.black),
-                      ),
-                    ),
-                    const Text("3.5"),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 0.0, top: 62),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      width: 20,
-                      height: 1,
-                      child: Container(
-                        decoration: const BoxDecoration(color: Colors.black),
-                      ),
-                    ),
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
                     const Text(
-                      "2.5",
-                    ),
+                      "Max level",
+                      style: TextStyle(fontSize: 10),
+                    )
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 0.0, top: 222),
+              Positioned(
+                top: position.dy + 70,
                 child: Row(
                   children: [
-                    SizedBox(
-                      width: 20,
-                      height: 1,
-                      child: Container(
-                        decoration: const BoxDecoration(color: Colors.black),
-                      ),
-                    ),
-                    const Text("1"),
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
+                    const Text(
+                      "Current level",
+                      style: TextStyle(fontSize: 10),
+                    )
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 0.0, top: 245),
+              Positioned(
+                bottom: position.dy + 50,
                 child: Row(
                   children: [
-                    SizedBox(
-                      width: 20,
-                      height: 1,
-                      child: Container(
-                        decoration: const BoxDecoration(color: Colors.black),
-                      ),
-                    ),
-                    const Text("0"),
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
+                    const Text(
+                      "Critical level",
+                      style: TextStyle(fontSize: 10),
+                    )
+                  ],
+                ),
+              ),
+              Positioned(
+                bottom: position.dy + 22,
+                child: Row(
+                  children: [
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
+                    const Text(
+                      "Empty",
+                      style: TextStyle(fontSize: 10),
+                    )
                   ],
                 ),
               ),
             ]),
           ),
-        ),
-      ]),
-    );
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.02,
+          ),
+          const Flexible(
+            child: VerticalDivider(
+              color: Colors.black,
+              width: 0.0,
+              indent: 34.0,
+              endIndent: 26.0,
+            ),
+          ),
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              maxWidth: MediaQuery.of(context).size.width * 0.20,
+            ),
+            child: Stack(
+              children: [
+                Positioned(
+                  top: position.dy + 28,
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 20,
+                        height: 1,
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      const Text(
+                        "4",
+                        style: TextStyle(fontSize: 10),
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  top: position.dy + 50,
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 20,
+                        height: 1,
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      const Text(
+                        "3.5",
+                        style: TextStyle(fontSize: 10),
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  top: position.dy + 70,
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 20,
+                        height: 1,
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      const Text(
+                        "2.0",
+                        style: TextStyle(fontSize: 10),
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  bottom: position.dy + 50,
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 20,
+                        height: 1,
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      const Text(
+                        "1.0",
+                        style: TextStyle(fontSize: 10),
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  bottom: position.dy + 20,
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 20,
+                        height: 1,
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      const Text(
+                        "0",
+                        style: TextStyle(fontSize: 10),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          )
+        ]));
   }
 }

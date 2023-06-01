@@ -41,7 +41,7 @@ class _WaterLevelState extends State<WaterLevel> {
                   onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const WaterGraph(),
+                        builder: (context) => const MainScreen(),
                       ))),
               IconButton(
                 icon: const Icon(Icons.refresh),
@@ -74,9 +74,9 @@ class _WaterLevelState extends State<WaterLevel> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       FlutterSwitch(
-                        width: MediaQuery.of(context).size.width * 0.39,
-                        valueFontSize: 15.0,
-                        padding: 1.2,
+                        width: MediaQuery.of(context).size.width * 0.40,
+                        valueFontSize: 11.5,
+                        padding: 1.0,
                         toggleSize: 22.0,
                         value: activeStatusTank,
                         borderRadius: 30.0,
@@ -97,11 +97,11 @@ class _WaterLevelState extends State<WaterLevel> {
                       ),
                       FlutterSwitch(
                         width: MediaQuery.of(context).size.width * 0.18,
-                        valueFontSize: 15.0,
-                        toggleSize: 22.0,
+                        valueFontSize: 11.5,
+                        toggleSize: 24.0,
                         value: activeStatusUnits,
                         borderRadius: 30.0,
-                        padding: 6.0,
+                        padding: 1.0,
                         showOnOff: true,
                         activeText: "Ft",
                         inactiveText: "Meters",

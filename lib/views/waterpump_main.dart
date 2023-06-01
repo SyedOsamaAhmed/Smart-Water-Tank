@@ -72,10 +72,9 @@ class _MainScreenState extends State<MainScreen> {
                     children: [
                       Expanded(
                         child: FlutterSwitch(
-                          width: MediaQuery.of(context).size.width * 0.39,
-                          // height: MediaQuery.of(context).size.height * 0.09,
-                          valueFontSize: 15.0,
-                          padding: 1.2,
+                          width: MediaQuery.of(context).size.width * 0.40,
+                          valueFontSize: 11.5,
+                          padding: 1.0,
                           toggleSize: 24.0,
                           value: activeStatusTank,
                           borderRadius: 30.0,
@@ -98,12 +97,11 @@ class _MainScreenState extends State<MainScreen> {
                       Expanded(
                         child: FlutterSwitch(
                           width: MediaQuery.of(context).size.width * 0.18,
-                          // height: MediaQuery.of(context).size.height * 0.09,
-                          valueFontSize: 15.0,
+                          valueFontSize: 11.5,
                           toggleSize: 24.0,
                           value: activeStatusUnits,
                           borderRadius: 30.0,
-                          padding: 6.0,
+                          padding: 1.0,
                           showOnOff: true,
                           activeText: "Ft",
                           inactiveText: "Meters",
@@ -138,10 +136,10 @@ class _MainScreenState extends State<MainScreen> {
             ),
             Padding(
               padding: const EdgeInsets.only(
-                  top: 10.0, left: 44.0, right: 44.0, bottom: 12.0),
+                  top: 10.0, left: 44.0, right: 44.0, bottom: 0.0),
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.70,
-                height: MediaQuery.of(context).size.height * 0.14,
+                // height: MediaQuery.of(context).size.height * 0.14,
                 decoration: const BoxDecoration(
                     color: Color(0XFF93F3D2),
                     borderRadius: BorderRadius.all(Radius.circular(3.0)),
