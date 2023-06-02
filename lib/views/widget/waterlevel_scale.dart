@@ -14,7 +14,7 @@ class Scale extends StatelessWidget {
         child: Row(mainAxisSize: MainAxisSize.max, children: [
           ConstrainedBox(
             constraints: BoxConstraints(
-              maxWidth: MediaQuery.of(context).size.width * 0.20,
+              maxWidth: MediaQuery.of(context).size.width * 0.24,
             ),
             child: Stack(children: [
               Positioned(
@@ -24,7 +24,7 @@ class Scale extends StatelessWidget {
                     SizedBox(width: MediaQuery.of(context).size.width * 0.02),
                     const Text(
                       "Full",
-                      style: TextStyle(fontSize: 10),
+                      style: TextStyle(fontSize: 12),
                     )
                   ],
                 ),
@@ -36,7 +36,7 @@ class Scale extends StatelessWidget {
                     SizedBox(width: MediaQuery.of(context).size.width * 0.02),
                     const Text(
                       "Max level",
-                      style: TextStyle(fontSize: 10),
+                      style: TextStyle(fontSize: 12),
                     )
                   ],
                 ),
@@ -48,7 +48,7 @@ class Scale extends StatelessWidget {
                     SizedBox(width: MediaQuery.of(context).size.width * 0.02),
                     const Text(
                       "Current level",
-                      style: TextStyle(fontSize: 10),
+                      style: TextStyle(fontSize: 12),
                     )
                   ],
                 ),
@@ -60,7 +60,7 @@ class Scale extends StatelessWidget {
                     SizedBox(width: MediaQuery.of(context).size.width * 0.02),
                     const Text(
                       "Critical level",
-                      style: TextStyle(fontSize: 10),
+                      style: TextStyle(fontSize: 12),
                     )
                   ],
                 ),
@@ -72,7 +72,7 @@ class Scale extends StatelessWidget {
                     SizedBox(width: MediaQuery.of(context).size.width * 0.02),
                     const Text(
                       "Empty",
-                      style: TextStyle(fontSize: 10),
+                      style: TextStyle(fontSize: 12),
                     )
                   ],
                 ),
@@ -80,14 +80,14 @@ class Scale extends StatelessWidget {
             ]),
           ),
           SizedBox(
-            width: MediaQuery.of(context).size.width * 0.02,
+            width: MediaQuery.of(context).size.width * 0.01,
           ),
           const Flexible(
             child: VerticalDivider(
               color: Colors.black,
               width: 0.0,
-              indent: 34.0,
-              endIndent: 26.0,
+              indent: 35.0,
+              endIndent: 27.0,
             ),
           ),
           ConstrainedBox(
@@ -111,7 +111,7 @@ class Scale extends StatelessWidget {
                       ),
                       const Text(
                         "4",
-                        style: TextStyle(fontSize: 10),
+                        style: TextStyle(fontSize: 12),
                       ),
                     ],
                   ),
@@ -131,7 +131,7 @@ class Scale extends StatelessWidget {
                       ),
                       const Text(
                         "3.5",
-                        style: TextStyle(fontSize: 10),
+                        style: TextStyle(fontSize: 12),
                       ),
                     ],
                   ),
@@ -151,7 +151,7 @@ class Scale extends StatelessWidget {
                       ),
                       const Text(
                         "2.0",
-                        style: TextStyle(fontSize: 10),
+                        style: TextStyle(fontSize: 12),
                       ),
                     ],
                   ),
@@ -171,7 +171,7 @@ class Scale extends StatelessWidget {
                       ),
                       const Text(
                         "1.0",
-                        style: TextStyle(fontSize: 10),
+                        style: TextStyle(fontSize: 12),
                       ),
                     ],
                   ),
@@ -191,7 +191,7 @@ class Scale extends StatelessWidget {
                       ),
                       const Text(
                         "0",
-                        style: TextStyle(fontSize: 10),
+                        style: TextStyle(fontSize: 12),
                       ),
                     ],
                   ),

@@ -11,34 +11,9 @@ class Levels extends StatefulWidget {
 }
 
 class _LevelsState extends State<Levels> {
-  final GlobalKey _keyMainLvl = GlobalKey();
-  final GlobalKey _keyCriticalLvl = GlobalKey();
-  final GlobalKey _keyNonCriticalLvl = GlobalKey();
   Offset positionMain = const Offset(0.0, 0.0);
   Offset positionCritical = const Offset(0.0, 0.0);
   Offset positionNonCritical = const Offset(0.0, 0.0);
-
-  void _getWidgetPosition() {
-    RenderBox renderBox =
-        _keyMainLvl.currentContext?.findRenderObject() as RenderBox;
-    positionMain = renderBox.localToGlobal(Offset.zero);
-    RenderBox renderbox1 =
-        _keyCriticalLvl.currentContext?.findRenderObject() as RenderBox;
-    positionCritical = renderbox1.localToGlobal(Offset.zero);
-    RenderBox renderbox2 =
-        _keyNonCriticalLvl.currentContext?.findRenderObject() as RenderBox;
-    positionNonCritical = renderbox2.localToGlobal(Offset.zero);
-
-    setState(() {});
-  }
-
-  @override
-  void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _getWidgetPosition();
-    });
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,8 +26,7 @@ class _LevelsState extends State<Levels> {
         alignment: Alignment.topLeft,
         children: [
           Positioned(
-            key: _keyMainLvl,
-            height: MediaQuery.of(context).size.height * 0.59,
+            height: MediaQuery.of(context).size.height * 0.58,
             left: positionCritical.dx - positionNonCritical.dx,
             child: SfRangeSliderTheme(
               data: SfRangeSliderThemeData(
@@ -69,9 +43,8 @@ class _LevelsState extends State<Levels> {
             ),
           ),
           Positioned(
-            top: positionMain.dy - 60,
+            top: positionMain.dy + 75,
             height: MediaQuery.of(context).size.height * 0.34,
-            key: _keyNonCriticalLvl,
             child: SfRangeSlider.vertical(
               values: const SfRangeValues(1.0, 3.5),
               showLabels: true,
@@ -83,8 +56,7 @@ class _LevelsState extends State<Levels> {
             ),
           ),
           Positioned(
-            key: _keyCriticalLvl,
-            bottom: positionNonCritical.dy - 40,
+            bottom: positionNonCritical.dy + 50,
             height: MediaQuery.of(context).size.height * 0.32,
             child: SfRangeSlider.vertical(
               values: const SfRangeValues(0.5, 3.0),
