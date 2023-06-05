@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart'
     show SfRangeSlider, SfRangeValues;
@@ -15,6 +16,31 @@ class _LevelsState extends State<Levels> {
   Offset positionCritical = const Offset(0.0, 0.0);
   Offset positionNonCritical = const Offset(0.0, 0.0);
 
+  final GlobalKey _main = GlobalKey();
+  final GlobalKey _critical = GlobalKey();
+  final GlobalKey _nonCritical = GlobalKey();
+
+  void _getWidgetPosition() {
+    RenderBox renderBox = _main.currentContext!.findRenderObject() as RenderBox;
+    positionMain = renderBox.localToGlobal(Offset.zero);
+
+    RenderBox renderBox1 =
+        _nonCritical.currentContext!.findRenderObject() as RenderBox;
+    positionNonCritical = renderBox1.localToGlobal(Offset.zero);
+
+    RenderBox renderBox2 =
+        _critical.currentContext!.findRenderObject() as RenderBox;
+    positionCritical = renderBox2.localToGlobal(Offset.zero);
+  }
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _getWidgetPosition();
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
@@ -26,6 +52,7 @@ class _LevelsState extends State<Levels> {
         alignment: Alignment.topLeft,
         children: [
           Positioned(
+            key: _main,
             height: MediaQuery.of(context).size.height * 0.58,
             left: positionCritical.dx - positionNonCritical.dx,
             child: SfRangeSliderTheme(
@@ -43,6 +70,7 @@ class _LevelsState extends State<Levels> {
             ),
           ),
           Positioned(
+            key: _nonCritical,
             top: positionMain.dy + 75,
             height: MediaQuery.of(context).size.height * 0.34,
             child: SfRangeSlider.vertical(
@@ -56,6 +84,7 @@ class _LevelsState extends State<Levels> {
             ),
           ),
           Positioned(
+            key: _critical,
             bottom: positionNonCritical.dy + 50,
             height: MediaQuery.of(context).size.height * 0.32,
             child: SfRangeSlider.vertical(

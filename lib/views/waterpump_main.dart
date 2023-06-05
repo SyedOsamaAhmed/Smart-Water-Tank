@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_switch/flutter_switch.dart';
+
 import 'package:smart_water_tank/views/graph_screen.dart';
 
 import 'package:smart_water_tank/views/settings.dart';
 import 'package:smart_water_tank/views/bottom_navigation.dart';
 import 'package:smart_water_tank/views/tank.dart';
+import 'package:smart_water_tank/views/widget/switches.dart';
 
 import 'package:smart_water_tank/views/widget/waterlevel_scale.dart';
 
@@ -65,56 +66,9 @@ class _MainScreenState extends State<MainScreen> {
               child: ConstrainedBox(
                 constraints: BoxConstraints(
                     maxHeight: MediaQuery.of(context).size.height * 0.09),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 23.0, left: 22.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Expanded(
-                        child: FlutterSwitch(
-                          width: MediaQuery.of(context).size.width * 0.40,
-                          valueFontSize: 11.5,
-                          padding: 1.0,
-                          toggleSize: 24.0,
-                          value: activeStatusTank,
-                          borderRadius: 30.0,
-                          showOnOff: true,
-                          activeText: "Overhead tank",
-                          activeTextFontWeight: FontWeight.w500,
-                          inactiveTextFontWeight: FontWeight.w500,
-                          inactiveText: "Underground tank",
-                          activeColor: const Color(0xFF98EDD0),
-                          inactiveColor: const Color(0xFF98EDD0),
-                          activeTextColor: Colors.black,
-                          inactiveTextColor: Colors.black,
-                          onToggle: (val) {
-                            setState(() {
-                              activeStatusTank = val;
-                            });
-                          },
-                        ),
-                      ),
-                      Expanded(
-                        child: FlutterSwitch(
-                          width: MediaQuery.of(context).size.width * 0.18,
-                          valueFontSize: 11.5,
-                          toggleSize: 24.0,
-                          value: activeStatusUnits,
-                          borderRadius: 30.0,
-                          padding: 1.0,
-                          showOnOff: true,
-                          activeText: "Ft",
-                          inactiveText: "Meters",
-                          activeColor: const Color(0xFF98EDD0),
-                          activeTextFontWeight: FontWeight.w500,
-                          inactiveColor: const Color(0xFF98EDD0),
-                          inactiveTextFontWeight: FontWeight.w500,
-                          activeTextColor: Colors.black,
-                          onToggle: (val) {},
-                        ),
-                      ),
-                    ],
-                  ),
+                child: const Padding(
+                  padding: EdgeInsets.only(top: 23.0, left: 22.0),
+                  child: Switches(),
                 ),
               ),
             ),
@@ -139,7 +93,6 @@ class _MainScreenState extends State<MainScreen> {
                   top: 10.0, left: 44.0, right: 44.0, bottom: 0.0),
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.70,
-                // height: MediaQuery.of(context).size.height * 0.14,
                 decoration: const BoxDecoration(
                     color: Color(0XFF93F3D2),
                     borderRadius: BorderRadius.all(Radius.circular(3.0)),

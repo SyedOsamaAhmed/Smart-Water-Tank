@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_switch/flutter_switch.dart';
 
 import 'package:smart_water_tank/views/waterpump_main.dart';
 import 'package:smart_water_tank/views/bottom_navigation.dart';
 import 'package:smart_water_tank/views/widget/sliders.dart';
+import 'package:smart_water_tank/views/widget/switches.dart';
 
 class WaterLevel extends StatefulWidget {
   const WaterLevel({super.key});
@@ -13,9 +13,7 @@ class WaterLevel extends StatefulWidget {
 }
 
 class _WaterLevelState extends State<WaterLevel> {
-  bool activeStatusTank = true, activeStatusUnits = true, pumpStatus = true;
-  Offset positionMain = const Offset(0.0, 0.0);
-
+  Offset origin = const Offset(0.0, 0.0);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,53 +65,8 @@ class _WaterLevelState extends State<WaterLevel> {
             children: [
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.10,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 15.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      FlutterSwitch(
-                        width: MediaQuery.of(context).size.width * 0.40,
-                        valueFontSize: 11.5,
-                        padding: 4.0,
-                        toggleSize: 22.0,
-                        value: activeStatusTank,
-                        borderRadius: 30.0,
-                        showOnOff: true,
-                        activeText: "Overhead tank",
-                        activeTextFontWeight: FontWeight.w500,
-                        inactiveTextFontWeight: FontWeight.w500,
-                        inactiveText: "Underground tank",
-                        activeColor: const Color(0xFF98EDD0),
-                        inactiveColor: const Color(0xFF98EDD0),
-                        activeTextColor: Colors.black,
-                        inactiveTextColor: Colors.black,
-                        onToggle: (val) {
-                          setState(() {
-                            activeStatusTank = val;
-                          });
-                        },
-                      ),
-                      FlutterSwitch(
-                        width: MediaQuery.of(context).size.width * 0.18,
-                        valueFontSize: 11.5,
-                        toggleSize: 24.0,
-                        value: activeStatusUnits,
-                        borderRadius: 30.0,
-                        padding: 1.0,
-                        showOnOff: true,
-                        activeText: "Ft",
-                        inactiveText: "Meters",
-                        activeColor: const Color(0xFF98EDD0),
-                        activeTextFontWeight: FontWeight.w500,
-                        inactiveColor: const Color(0xFF98EDD0),
-                        inactiveTextFontWeight: FontWeight.w500,
-                        activeTextColor: Colors.black,
-                        onToggle: (val) {},
-                      ),
-                    ],
-                  ),
-                ),
+                child: const Padding(
+                    padding: EdgeInsets.only(top: 15.0), child: Switches()),
               ),
               Flexible(
                 child: SizedBox(
@@ -123,76 +76,79 @@ class _WaterLevelState extends State<WaterLevel> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Expanded(
-                        child: ConstrainedBox(
-                          constraints: BoxConstraints(
-                              maxWidth: MediaQuery.of(context).size.width / 2,
-                              maxHeight:
-                                  MediaQuery.of(context).size.height * 0.68),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 9.0),
-                            child: Stack(
-                              alignment: Alignment.center,
-                              children: [
-                                Positioned(
-                                  top: positionMain.dy + 20,
-                                  child: const Text(
-                                    "Full",
-                                    style: TextStyle(
-                                        fontSize: 11,
-                                        fontWeight: FontWeight.w400),
+                          child: ConstrainedBox(
+                              constraints: BoxConstraints(
+                                  maxWidth:
+                                      MediaQuery.of(context).size.width / 2,
+                                  maxHeight:
+                                      MediaQuery.of(context).size.height *
+                                          0.68),
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  Positioned(
+                                    top: MediaQuery.of(context).size.height *
+                                        0.02,
+                                    child: const Text(
+                                      "Full",
+                                      style: TextStyle(
+                                          fontSize: 11,
+                                          fontWeight: FontWeight.w400),
+                                    ),
                                   ),
-                                ),
-                                Positioned(
-                                  top: positionMain.dy + 92,
-                                  child: const Text(
-                                    "Max Level Non-Peak Hours",
-                                    style: TextStyle(
-                                        fontSize: 11,
-                                        fontWeight: FontWeight.w400),
+                                  Positioned(
+                                    top: MediaQuery.of(context).size.height *
+                                        0.14,
+                                    child: const Text(
+                                      "Max Level Non-Peak Hours",
+                                      style: TextStyle(
+                                          fontSize: 11,
+                                          fontWeight: FontWeight.w400),
+                                    ),
                                   ),
-                                ),
-                                Positioned(
-                                  top: positionMain.dy + 148,
-                                  child: const Text(
-                                    "Max Level Peak Hours",
-                                    style: TextStyle(
-                                        fontSize: 11,
-                                        fontWeight: FontWeight.w400),
+                                  Positioned(
+                                    top: MediaQuery.of(context).size.height *
+                                        0.23,
+                                    child: const Text(
+                                      "Max Level Peak Hours",
+                                      style: TextStyle(
+                                          fontSize: 11,
+                                          fontWeight: FontWeight.w400),
+                                    ),
                                   ),
-                                ),
-                                Positioned(
-                                  bottom: positionMain.dy + 110,
-                                  child: const Text(
-                                    "Critical Level Non-Peak Hours",
-                                    style: TextStyle(
-                                        fontSize: 11,
-                                        fontWeight: FontWeight.w400),
+                                  Positioned(
+                                    bottom: MediaQuery.of(context).size.height *
+                                        0.17,
+                                    child: const Text(
+                                      "Critical Level Non-Peak Hours",
+                                      style: TextStyle(
+                                          fontSize: 11,
+                                          fontWeight: FontWeight.w400),
+                                    ),
                                   ),
-                                ),
-                                Positioned(
-                                  bottom: positionMain.dy + 65,
-                                  child: const Text(
-                                    "Critical Level Peak Hours",
-                                    style: TextStyle(
-                                        fontSize: 11,
-                                        fontWeight: FontWeight.w400),
+                                  Positioned(
+                                    bottom: MediaQuery.of(context).size.height *
+                                        0.10,
+                                    child: const Text(
+                                      "Critical Level Peak Hours",
+                                      style: TextStyle(
+                                          fontSize: 11,
+                                          fontWeight: FontWeight.w400),
+                                    ),
                                   ),
-                                ),
-                                Positioned(
-                                  bottom: positionMain.dy + 30,
-                                  child: const Text(
-                                    "Empty",
-                                    style: TextStyle(
-                                        fontSize: 11,
-                                        fontWeight: FontWeight.w400),
+                                  Positioned(
+                                    bottom: MediaQuery.of(context).size.height *
+                                        0.05,
+                                    child: const Text(
+                                      "Empty",
+                                      style: TextStyle(
+                                          fontSize: 11,
+                                          fontWeight: FontWeight.w400),
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      const Levels()
+                                ],
+                              ))),
+                      const Levels(),
                     ],
                   ),
                 ),

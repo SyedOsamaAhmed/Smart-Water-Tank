@@ -86,8 +86,8 @@ class Scale extends StatelessWidget {
             child: VerticalDivider(
               color: Colors.black,
               width: 0.0,
-              indent: 35.0,
-              endIndent: 27.0,
+              indent: 36.0,
+              endIndent: 28.0,
             ),
           ),
           ConstrainedBox(

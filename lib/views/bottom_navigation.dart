@@ -30,9 +30,6 @@ class BottomNavigation extends StatelessWidget {
                               Flexible(
                                 child: ConstrainedBox(
                                   constraints: BoxConstraints(
-                                    maxHeight:
-                                        MediaQuery.of(context).size.height *
-                                            0.13,
                                     maxWidth:
                                         MediaQuery.of(context).size.width *
                                             0.40,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+
 import 'package:smart_water_tank/views/settings.dart';
-import 'package:smart_water_tank/views/signup.dart';
-import 'package:smart_water_tank/views/waterpump_main.dart';
 
 void main() {
   runApp(const MyApp());
